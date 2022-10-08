@@ -68,4 +68,6 @@
 		<servlet-name>museum</servlet-name>
 		<url-pattern>*.mu</url-pattern>
 	</servlet-mapping>
+	
+	
 </web-app>

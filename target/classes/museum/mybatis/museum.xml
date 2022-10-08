@@ -2,5 +2,13 @@
   <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <mapper namespace="museum.MuseumBean">
+  
+  <mapper namespace="museum.model.Museum">
+  
+  	<insert id="InsertMuseum">
+  		insert into museum values(m_seq.nextval,#{name},#{address},#{ph},#{offday},#{totalfloor},#{open},#{close},#{nightopen},#{opt},#{img})
+  	</insert>
+  	<select id="GetMuseumList" resultType="museum">
+  		select * from museum order by no
+  	</select>
   </mapper>

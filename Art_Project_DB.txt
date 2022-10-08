@@ -1,0 +1,100 @@
+drop table museum cascade constraints;
+create table museum( --11
+no number primary key,
+name varchar2(80) not null,
+address varchar2(90) not null,
+ph varchar2(15),
+offday varchar2(50),
+totalfloor varchar2(50),
+open varchar2(20),
+close varchar2(20),
+nightopen varchar2(20),
+opt varchar2(60),
+img varchar2(60)
+);
+
+drop sequence m_seq;
+create sequence m_seq
+start with 1
+increment by 1
+nocache;
+
+set pageSize 200;
+set lineSize 200;
+col name for a1
+2;
+col address for a20;
+col ph for a15;
+col offday for a12;
+col open for a12;
+col close for a12;
+col opt for a12;
+col img for a20;
+col nightopen for a10;
+col totalfloor for a10;
+
+commit;
+
+select * from museum;
+
+
+drop table reservation cascade constraints;
+create table reservation(
+no number primary key,
+id varchar2(20),
+name varchar2(15),
+day varchar2(20),
+time varchar2(20),
+count number,
+price varchar2(10),
+pay number
+);
+
+drop sequence r_seq;
+create sequence r_seq
+start with 1
+increment by 1
+nocache;
+commit;
+
+drop table collection cascade constraints;
+create table collection(
+no number primary key,
+title varchar2(100),
+start date,
+end date,
+museum varhcar2(30),
+place varchar2(60),
+painter varchar2(100),
+img1 varchar2(60),
+img2 varchar2(60),
+img3 varchar2(60),
+img4 varchar2(60),
+img5 varchar2(60),
+content varchar2(500),
+sponser varchar2(100),
+count number,
+price number,
+readcount number,
+audio1 varchar2(50),
+audio2 varchar2(50),
+audio3 varchar2(50),
+audio4 varchar2(50),
+audio5 varchar2(50),
+audio6 varchar2(50),
+audio7 varchar2(50),
+audio8 varchar2(50),
+audio9 varchar2(50),
+audio10 varchar2(50),
+video varchar2(60)
+);
+
+drop sequence c_seq;
+create sequence c_seq
+start with 1
+increment by 1
+nocache
+;
+
+commit;
+
