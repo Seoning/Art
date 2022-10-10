@@ -38,6 +38,10 @@ museum_List.jsp<br>
 		</tr>
 		</c:forEach>
 	</table>
+	<br>
+	<center>
+		<input type="button" value="등록하기" class="btn btn-primary" onclick="location.href='insert.mu'">
+	</center>
 </form>
 
 

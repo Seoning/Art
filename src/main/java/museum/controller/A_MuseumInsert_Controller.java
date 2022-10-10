@@ -23,7 +23,7 @@ import museum.model.MuseumDao;
 public class A_MuseumInsert_Controller {
 	final String command = "insert.mu";
 	String getPage = "/admin/museum_insert";
-	String goToPage = "/admin/museum_List";
+	String goToPage = "redirect:list.mu";
 	
 	@Autowired
 	MuseumDao mdao;

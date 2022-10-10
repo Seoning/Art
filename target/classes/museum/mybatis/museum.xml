@@ -11,4 +11,13 @@
   	<select id="GetMuseumList" resultType="museum">
   		select * from museum order by no
   	</select>
+  	
+  	<select id="GetByNo" resultType="museum">
+  		select * from museum where no=#{no}
+  	</select>
+  	
+  	<delete id="DeleteByNo">
+  		delete museum where no=#{no}
+  	</delete>
+  	
   </mapper>

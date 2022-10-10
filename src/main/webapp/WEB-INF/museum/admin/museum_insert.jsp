@@ -128,8 +128,8 @@
 	<br>	
 	<center>
 	<div>		
-		<input type="button" value="목록보기" class="btn btn-secondary">
-		<input type="submit" value="등록하기" class="btn btn-primary">
+		<input type="button" value="목록보기" class="btn btn-secondary" onclick="location.href='list.mu'">
+		<input type="submit" value="등록하기" class="btn btn-primary" onclick="location.href='insert.mu'">
 		<input type="reset" value="지우기" class="btn btn-danger">
 	</div>
 	</center>

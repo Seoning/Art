@@ -24,6 +24,16 @@ public class MuseumDao {
 		System.out.println("lists.size:"+lists.size());
 		return lists;
 	}
+
+	public MuseumBean getByNo(int no) {
+		MuseumBean mb = sqlSessionTemplate.selectOne(namespace+".GetByNo",no);
+		return mb;
+	}
+
+	public void deleteByNo(int no) {
+		int delete = sqlSessionTemplate.delete(namespace+".DeleteByNo",no);
+		System.out.println("delete:"+delete);
+	}
 	
 	
 	
