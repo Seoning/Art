@@ -34,6 +34,11 @@ public class MuseumDao {
 		int delete = sqlSessionTemplate.delete(namespace+".DeleteByNo",no);
 		System.out.println("delete:"+delete);
 	}
+
+	public void updateMuseum(MuseumBean mb) {
+		int update = sqlSessionTemplate.update(namespace+".UpdateMuseum",mb);
+		System.out.println("udpate:"+update);
+	}
 	
 	
 	

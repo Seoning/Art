@@ -46,7 +46,7 @@ String url = request.getContextPath()+"/resources/img/museumImg/";
 	<br>
 	<center>
 		<input type="button" value="목록보기" onclick="location.href='list.mu'" class="btn btn-secondary">
-		<input type="submit" value="수정하기" class="btn btn-primary" onclick="location.href='update.mu?no=${mb.no}'">
+		<input type="button" value="수정하기" class="btn btn-primary" onclick="location.href='update.mu?no=${mb.no}'">
 		<input type="button" value="삭제하기" class="btn btn-danger" onclick="location.href='delete.mu?no=${mb.no}'">
 	</center>
 </form>

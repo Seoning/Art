@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    <%@include file="/WEB-INF/common/common.jsp" %>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -22,14 +23,26 @@
         	.masthead{
         		background-image: url("./../../resources/img/국립현대미술관-청주_미술로-세계로_전시-전경-01.jpg"); 
         	}
+        	.portfolio-caption{
+        		width:374px;
+        	}
+        	.img-fluid{
+        		 width:374px;
+        		 height:247px; 
+        	}
+        	.portfolio-item{
+        		width:374px;
+        	}
         </style>
-        
+    <script type="text/javascript">
+    	
+    </script>    
     </head>
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top"><img src="assets/img/navbar-logo.svg" alt="..." /></a>
+                <a class="navbar-brand" href="home.mu"><img id="img" src="resources/img/" alt="..."/></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
@@ -95,6 +108,7 @@
                     <h3 class="section-subheading text-muted">Introduce Museum</h3>
                 </div>
                 <div class="row">
+                	<c:forEach var="mb" items="${lists }">
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 1-->
                         <div class="portfolio-item">
@@ -102,75 +116,15 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="<%=request.getContextPath() %>/resources/img/국립현대.jfif" alt="국립현대" />
+                                <img class="img-fluid" src="<%=request.getContextPath() %>/resources/img/museumImg/${mb.img}" alt="${mb.name}"/>
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">국립현대미술관</div>
-                                <div class="portfolio-caption-subheading text-muted">주소</div>
+                                <div class="portfolio-caption-heading">${mb.name}</div>
+                                <div class="portfolio-caption-subheading text-muted">${mb.address}</div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <!-- Portfolio item 2-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="<%=request.getContextPath() %>/resources/img/덕수궁.jfif" alt="덕수궁" />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Explore</div>
-                                <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <!-- Portfolio item 3-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="<%=request.getContextPath() %>/resources/img/과천.jpg" alt="과천" />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Finish</div>
-                                <div class="portfolio-caption-subheading text-muted">Identity</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                        <!-- Portfolio item 4-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="<%=request.getContextPath() %>/resources/img/청주.jfif" alt="청주" />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Lines</div>
-                                <div class="portfolio-caption-subheading text-muted">Branding</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                        <!-- Portfolio item 4-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="<%=request.getContextPath() %>/resources/img/국립중앙.jfif" alt="국립중앙" />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Lines</div>
-                                <div class="portfolio-caption-subheading text-muted">Branding</div>
-                            </div>
-                        </div>
-                    </div>
-                   
+                    </c:forEach>
                 </div>
             </div>
         </section>

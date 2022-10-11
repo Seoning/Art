@@ -52,7 +52,7 @@
 			<tr class="table-light">
 				<th scope="row" id="title">휴무일</th>
 				<td scope="row">
-					<input type="checkbox" class="form-check-input" name="nightopen" value="연중무휴">없음&nbsp;&nbsp;&nbsp; 
+					<input type="checkbox" class="form-check-input" name="offday" value="연중무휴">없음&nbsp;&nbsp;&nbsp; 
 					<input type="checkbox" class="form-check-input" name="offday" value="월">월&nbsp;&nbsp;&nbsp; 
 					<input type="checkbox" class="form-check-input" name="offday" value="화">화&nbsp;&nbsp;&nbsp; 
 					<input type="checkbox" class="form-check-input" name="offday" value="수">수&nbsp;&nbsp;&nbsp;

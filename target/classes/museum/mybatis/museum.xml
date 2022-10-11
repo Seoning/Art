@@ -19,5 +19,8 @@
   	<delete id="DeleteByNo">
   		delete museum where no=#{no}
   	</delete>
-  	
+  	<update id="UpdateMuseum">
+  		update museum set name=#{name}, address=#{address}, ph=#{ph}, offday=#{offday}, totalfloor=#{totalfloor}, open=#{open}, close=#{close}, nightopen=#{nightopen}, opt=#{opt}, img=#{img} 
+  		where no=#{no}
+  	</update>
   </mapper>

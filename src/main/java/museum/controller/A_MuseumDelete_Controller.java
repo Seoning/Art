@@ -14,6 +14,8 @@ public class A_MuseumDelete_Controller {
 	@Autowired
 	MuseumDao mdao;
 	
+	
+	
 	@RequestMapping(command)
 	public String delete(int no) {
 		
