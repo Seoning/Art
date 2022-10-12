@@ -62,7 +62,7 @@
         <header class="masthead" style="background: url('./resources/img/art_15964966087257_de821c.jpg')">
             <div class="container">
                 <div class="masthead-subheading">Art_See</div>
-                <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+                <div class="masthead-heading text-uppercase">Korea National Gallery</div>
                 <a class="btn btn-primary btn-xl text-uppercase" href="#services">Start</a>
             </div>
         </header>
@@ -104,7 +104,7 @@
         <section class="page-section bg-light" id="portfolio">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Public Museum</h2>
+                    <h2 class="section-heading text-uppercase">National Gallery</h2>
                     <h3 class="section-subheading text-muted">Introduce Museum</h3>
                 </div>
                 <div class="row">
@@ -112,7 +112,7 @@
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 1-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#${mb.name }">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
@@ -317,4 +317,64 @@
                 </form>
             </div>
         </section>
+         <!-- Portfolio Modals-->
+        <!-- Portfolio item 1 modal popup-->
+        <c:forEach var="mb" items="${lists }">
+        <div class="portfolio-modal modal fade" id="${mb.name }" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">${mb.name }</h2>
+                                    <p class="item-intro text-muted">${mb.address }</p>
+                                    <img class="img-fluid d-block mx-auto" src="<%=request.getContextPath() %>/resources/img/museumImg/${mb.img}" alt="${mb.name }" />
+                                    
+                                    	<ul class="list-inline">
+                                    		<li>
+                                    			<strong>전화번호:</strong>
+                                    			${mb.ph }
+                                    		</li>
+                                    		<li>
+                                    			<strong>휴무일:</strong>
+                                    			${mb.offday }
+                                    		</li>
+                                    		<li>
+                                    			<strong>야간개장일:</strong>
+                                    			${mb.nightopen }
+                                    		</li>
+                                    		<li>
+                                    			<strong>총계층:</strong>
+                                    			${mb.totalfloor }
+                                    		</li>
+                                    		<li>	
+                                    			${mb.opt }
+                                    		</li>
+                                    	</ul>
+                                   
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>OPEN:</strong>
+                                            ${mb.open }
+                                        </li>
+                                        <li>
+                                            <strong>CLOSE:</strong>
+                                            ${mb.close }
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </c:forEach>
         <%@include file="/WEB-INF/Top&Bottom/Bottom.jsp" %>

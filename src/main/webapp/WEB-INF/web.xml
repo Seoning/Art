@@ -69,5 +69,22 @@
 		<url-pattern>*.mu</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>exhibition</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/appServlet/exhibition-context.xml
+			</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>exhibition</servlet-name>
+		<url-pattern>*.ex</url-pattern>
+	</servlet-mapping>
+	
 	
 </web-app>
