@@ -13,8 +13,8 @@
 ex_list.jsp<br>
 
 	<form>
-		<table class="table table-hover">
-			<tr class="table-secondary" id="title">
+		<table class="table table-hover" id="title">
+			<tr class="table-secondary">
 				<th scope="row">No.</th>
 				<th scope="row">제목</th>
 				<th scope="row">작가</th>
@@ -34,9 +34,9 @@ ex_list.jsp<br>
 				<td>${eb.no }</td>
 				<td><a href="detail.ex?no=${mb.no }">${eb.title }</a></td>
 				<td>${eb.painter }</td>
+				<td>${eb.startday }</td>
+				<td>${eb.endday }</td>
 				<td>${eb.museum }</td>
-				<td>${eb.start }</td>
-				<td>${eb.end }</td>
 			</tr>
 			</c:forEach>
 		</table>

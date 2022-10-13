@@ -17,6 +17,11 @@ public class ExhibitionDao {
 		List<ExhibitionBean> lists = sqlSessionTemplate.selectList(namespace+".GetAllEx");
 		return lists;
 	}
+
+	public void insertExhibition(ExhibitionBean eb) {
+		int insert = sqlSessionTemplate.insert(namespace+".InsertExhibition",eb);
+		System.out.println("insert:"+insert);
+	}
 	
 	
 	

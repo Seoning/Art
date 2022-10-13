@@ -9,5 +9,9 @@
   		select * from exhibition
   	</select>
   	
+  	<insert id="InsertExhibition">
+  		insert into exhibition values(ex_seq.nextval, #{title}, #{startday}, #{endday}, #{museum}, #{place}, #{painter},
+  			#{img}, #{content}, #{sponsor}, #{count}, #{price}, #{readcount})
+  	</insert>
   	
   </mapper>

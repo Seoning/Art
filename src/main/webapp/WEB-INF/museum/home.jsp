@@ -33,6 +33,8 @@
         	.portfolio-item{
         		width:374px;
         	}
+        
+        	
         </style>
     <script type="text/javascript">
     	
@@ -42,7 +44,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="home.mu"><img id="img" src="resources/img/" alt="..."/></a>
+                <a class="navbar-brand" href="home.mu"><img id="img" src="<%=request.getContextPath() %>/resources/startbootstrap-agency-gh-pages/assets/img/navbar-logo.svg" alt="..."/></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
@@ -323,7 +325,7 @@
         <div class="portfolio-modal modal fade" id="${mb.name }" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="<%=request.getContextPath() %>/resources/startbootstrap-agency-gh-pages/assets/img/close-icon.svg" alt="Close modal" /></div>
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-lg-8">

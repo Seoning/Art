@@ -20,7 +20,7 @@ ex_Insert.jsp<br>
 	}
 </style>
 
- <form:form action="exinsert.ex" method="post" enctype="multipart/form-data" commandName="exhibitionBean">
+ <form:form action="exinsert.ex" method="post" enctype="multipart/form-data">
 	<table class="table table-hover">
 		<tr class="table-secondary" id="title">
 			<th scope="row" colspan="2">전시회 등록하기</th>
@@ -68,29 +68,37 @@ ex_Insert.jsp<br>
 		</tr>
 		<tr>
 			<th scope="row" id="title">전시소개</th>
-			<td scope="row"><input type="text" class="form-control" name="content"></td>
+			<td scope="row"><textarea name="content" cols="88" rows="5" ></textarea></td>
 		</tr>
 		<tr>
 			<th scope="row" id="title">후원기관</th>
-			<td scope="row"><input type="text" class="form-control" name="sponser"></td>
+			<td scope="row"><input type="text" class="form-control" name="sponsor"></td>
 		</tr>
 		<tr>
 			<th scope="row" id="title">관람료</th>
 			<td scope="row"><input type="text" class="form-control" name="price"></td>
 		</tr>
 		<tr>
+			<th scope="row" id="title">총 전시 작품 수</th>
+			<td scope="row"><input type="text" class="form-control" name="count"></td>
+		</tr>
+		<tr>
 			<th scope="row" id="title">첨부사진</th>
 			<td scope="row">
-				<input type="file" class="form-control" name="img1">
-				<input type="file" class="form-control" name="img2">
-				<input type="file" class="form-control" name="img3">
-				<input type="file" class="form-control" name="img4">
-				<input type="file" class="form-control" name="img5">
+				<input type="file" class="form-control" name="upload">
 			</td>
 		</tr>
 		
-		
 	</table>
+	<br>
+	<center>
+	<div>		
+		<input type="button" value="목록보기" class="btn btn-secondary" onclick="location.href='exlist.ex'">
+		<input type="submit" value="등록하기" class="btn btn-primary">
+		<input type="reset" value="지우기" class="btn btn-danger">
+	</div>
+	</center>
+	
 </form:form>
 
 	<br><br>
