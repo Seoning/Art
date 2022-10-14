@@ -22,11 +22,11 @@ ex_Insert.jsp<br>
 
  <form:form action="exinsert.ex" method="post" enctype="multipart/form-data">
 	<table class="table table-hover">
-		<tr class="table-secondary" id="title">
+		<tr class="table-primary" id="title">
 			<th scope="row" colspan="2">전시회 등록하기</th>
 		</tr>
 		<tr>
-			<th scope="row" id="title">전시제목</th>
+			<th scope="row" id="title">전시명</th>
 			<td scope="row"><input type="text" class="form-control" name="title"></td>
 		</tr>
 		<tr>
@@ -40,7 +40,7 @@ ex_Insert.jsp<br>
 					<option value="국립현대미술관">국립현대미술관</option>
 					<option value="국립현대미술관_덕수궁">국립현대미술관_덕수궁</option>
 					<option value="국립현대미술관_과천">국립현대미술관_과천</option>
-					<option value="국립현대미술관_청">국립현대미술관_청주</option>
+					<option value="국립현대미술관_청주">국립현대미술관_청주</option>
 					<option value="국립중앙미술관">국립중앙미술관</option>
 				</select>
 			</td>
@@ -79,7 +79,7 @@ ex_Insert.jsp<br>
 			<td scope="row"><input type="text" class="form-control" name="price"></td>
 		</tr>
 		<tr>
-			<th scope="row" id="title">총 전시 작품 수</th>
+			<th scope="row" id="title">총 작품 수</th>
 			<td scope="row"><input type="text" class="form-control" name="count"></td>
 		</tr>
 		<tr>

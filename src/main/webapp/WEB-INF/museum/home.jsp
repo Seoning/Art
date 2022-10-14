@@ -33,7 +33,9 @@
         	.portfolio-item{
         		width:374px;
         	}
-        
+        	#eb_img{
+        		width:500px;
+        	}
         	
         </style>
     <script type="text/javascript">
@@ -52,8 +54,23 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Museum</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">Exhibition</a></li>
+                        
+                    	<li class="nav-item dropdown">
+	                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Museum</a>
+	                        <div class="dropdown-menu">
+	                          <a class="dropdown-item" href="list.mu">목록보기</a>
+	                          <a class="dropdown-item" href="insert.mu">추가하기</a>
+	                        </div>
+                      	</li>
+                      	
+                    	<li class="nav-item dropdown">
+	                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Exhibition</a>
+	                        <div class="dropdown-menu">
+	                          <a class="dropdown-item" href="exlist.ex">목록보기</a>
+	                          <a class="dropdown-item" href="exinsert.ex">추가하기</a>
+	                        </div>
+                      	</li>
+                      
                         <li class="nav-item"><a class="nav-link" href="#team">Shop</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     </ul>
@@ -138,57 +155,25 @@
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
                 <ul class="timeline">
+                <c:forEach var="eb" items="${elists }">
                     <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/1.jpg" alt="..." /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>2009-2011</h4>
-                                <h4 class="subheading">Our Humble Beginnings</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt="..." /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>March 2011</h4>
-                                <h4 class="subheading">An Agency is Born</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="..." /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>December 2015</h4>
-                                <h4 class="subheading">Transition to Full Service</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="..." /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>July 2020</h4>
-                                <h4 class="subheading">Phase Two Expansion</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
                         <div class="timeline-image">
-                            <h4>
-                                Be Part
-                                <br />
-                                Of Our
-                                <br />
-                                Story!
-                            </h4>
+                        	<a href="detail.ex?no=${eb.no }"><img id="eb_img" class="img-fluid" src="<%=request.getContextPath() %>/resources/img/exhib/${eb.img}" alt="..."/></a>
                         </div>
+                        <h4>${eb.title}</h4>
+                        <h4 class="subheading">
+                            <fmt:parseDate var="startday" value="${eb.startday }" pattern="yyyy-MM-dd"/>
+							<fmt:formatDate value="${startday }" var="startday" pattern="yyyy-MM-dd"/>
+							<fmt:parseDate var="endday" value="${eb.endday }" pattern="yyyy-MM-dd"/>
+							<fmt:formatDate value="${endday }" var="endday" pattern="yyyy-MM-dd"/>
+							${startday }&nbsp;~&nbsp;${endday }
+                         </h4>
+                        
+                         <div class="timeline-body">
+                         	<p class="text-muted">${eb.content}</p>
+                         </div>
                     </li>
+                </c:forEach>
                 </ul>
             </div>
         </section>

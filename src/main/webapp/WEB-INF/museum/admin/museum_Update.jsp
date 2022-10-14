@@ -24,7 +24,7 @@
     <form:form action="update.mu" method="post" enctype="multipart/form-data" commandName="museumBean">
     <input type="hidden" class="form-control" name="no" value="${mb.no }">
 		<table class="table table-hover">
-			<tr class="table-secondary" id="title">
+			<tr class="table-primary" id="title">
 				<th scope="row" colspan="2">미술관 정보 수정하기</th>
 			</tr>
 			<tr class="table-light">

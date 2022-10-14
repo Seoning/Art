@@ -40,7 +40,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top"><img src="<%=request.getContextPath() %>/resources/startbootstrap-agency-gh-pages/assets/img/navbar-logo.svg" alt="..." /></a>
+                <a class="navbar-brand" href="home.mu"><img src="<%=request.getContextPath() %>/resources/startbootstrap-agency-gh-pages/assets/img/navbar-logo.svg" alt="..." /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
@@ -48,8 +48,23 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Museum</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">Exhibition</a></li>
+                        
+                    	<li class="nav-item dropdown">
+	                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Museum</a>
+	                        <div class="dropdown-menu">
+	                          <a class="dropdown-item" href="list.mu">목록보기</a>
+	                          <a class="dropdown-item" href="insert.mu">추가하기</a>
+	                        </div>
+                      	</li>
+                      	
+                    	<li class="nav-item dropdown">
+	                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Exhibition</a>
+	                        <div class="dropdown-menu">
+	                          <a class="dropdown-item" href="exlist.ex">목록보기</a>
+	                          <a class="dropdown-item" href="exinsert.ex">추가하기</a>
+	                        </div>
+                      	</li>
+                      
                         <li class="nav-item"><a class="nav-link" href="#team">Shop</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     </ul>

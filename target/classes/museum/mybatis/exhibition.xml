@@ -6,12 +6,27 @@
   <mapper namespace="exhibition.model.Exhibition">
   	
   	<select id="GetAllEx" resultType="exhibition">
-  		select * from exhibition
+  		select * from exhibition order by no desc
   	</select>
   	
   	<insert id="InsertExhibition">
   		insert into exhibition values(ex_seq.nextval, #{title}, #{startday}, #{endday}, #{museum}, #{place}, #{painter},
   			#{img}, #{content}, #{sponsor}, #{count}, #{price}, #{readcount})
   	</insert>
+  	
+  	<select id="GetByNo" resultType="exhibition">
+  		select * from exhibition where no=#{no}
+  	</select>
+  	
+  	<delete id="DeleteByNo">
+  		delete exhibition where no=#{no}
+  	</delete>
+  	
+  	<update id="UpdateExhibition">
+  		update exhibition set title=#{title}, painter=#{painter}, museum=#{museum}, place=#{place}, startday=#{startday},
+  		 endday=#{endday}, content=#{content}, sponsor=#{sponsor}, price=#{price}, count=#{count}, img=#{img}
+  		 where no = #{no}
+  	</update>
+  	
   	
   </mapper>

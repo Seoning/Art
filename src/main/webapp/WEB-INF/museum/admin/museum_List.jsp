@@ -10,14 +10,18 @@
 	#title {
 		text-align: center;
 	}
+	.card{
+		align-items: center;
+		margin: auto;
+	}
 </style>
-museum_List.jsp<br>
+<br>
+<div class="card border-primary mb-3" style="max-width: 20rem;">
+	<div class="card-title">미술관 목록</div>
+</div>
 <form>
 	<table class="table table-hover">
-		<tr class="table-secondary" id="title">
-			<th scope="row" colspan="7">미술관 목록보기</th>
-		</tr>
-		<tr class="table-secondary">
+		<tr class="table-primary">
 			<th scope="row">No.</th>
 			<th scope="row">미술관명</th>
 			<th scope="row">주소</th>
@@ -27,7 +31,7 @@ museum_List.jsp<br>
 			<th scope="row">폐장시간</th>
 		</tr>
 		<c:forEach var="mb" items="${lists }">
-		<tr>
+		<tr class="table-light">
 			<Td>${mb.no }</Td>
 			<Td><a href="detail.mu?no=${mb.no }">${mb.name }</a></Td>
 			<Td>${mb.address }</Td>

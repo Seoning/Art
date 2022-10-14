@@ -3,18 +3,25 @@
 <%@include file="/WEB-INF/Top&Bottom/Admin_Top.jsp" %>
 <style>
 	.table {
-	width: 50%;
+	width: 60%;
 	margin: auto;
 	}
 	#title {
 		text-align: center;
 	}
+	.card{
+		align-items: center;
+		margin: auto;
+	}
 </style>
-ex_list.jsp<br>
+<br>
+<div class="card border-primary mb-3" style="max-width: 20rem;">
+	<div class="card-title">전시회 목록</div>
+</div>
 
 	<form>
 		<table class="table table-hover" id="title">
-			<tr class="table-secondary">
+			<tr class="table-primary">
 				<th scope="row">No.</th>
 				<th scope="row">제목</th>
 				<th scope="row">작가</th>
@@ -30,9 +37,9 @@ ex_list.jsp<br>
 			</c:if>
 			
 			<c:forEach var="eb" items="${lists }">
-			<tr class="table-secondary">
+			<tr class="table-light">
 				<td>${eb.no }</td>
-				<td><a href="detail.ex?no=${mb.no }">${eb.title }</a></td>
+				<td><a href="detail.ex?no=${eb.no }">${eb.title }</a></td>
 				<td>${eb.painter }</td>
 				<td>${eb.startday }</td>
 				<td>${eb.endday }</td>
@@ -41,6 +48,9 @@ ex_list.jsp<br>
 			</c:forEach>
 		</table>
 	</form>
-
+	<br>
+	<center>
+		<input type="button" value="등록하기" onclick="location.href='exinsert.ex'" class="btn btn-outline-primary">
+	</center>
 <br><br>
 <%@include file="/WEB-INF/Top&Bottom/Bottom.jsp" %>

@@ -22,6 +22,21 @@ public class ExhibitionDao {
 		int insert = sqlSessionTemplate.insert(namespace+".InsertExhibition",eb);
 		System.out.println("insert:"+insert);
 	}
+
+	public ExhibitionBean getByNo(int no) {
+		ExhibitionBean eb = sqlSessionTemplate.selectOne(namespace+".GetByNo",no);
+		return eb;
+	}
+
+	public void deleteByNo(int no) {
+		int delete = sqlSessionTemplate.delete(namespace+".DeleteByNo",no);
+		System.out.println("delete:"+delete);
+	}
+
+	public void updateExhibition(ExhibitionBean eb) {
+		int update = sqlSessionTemplate.update(namespace+".UpdateExhibition",eb);
+		System.out.println("update:"+update);
+	}
 	
 	
 	

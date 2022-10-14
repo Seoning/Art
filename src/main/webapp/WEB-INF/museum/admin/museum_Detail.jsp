@@ -16,7 +16,7 @@ String url = request.getContextPath()+"/resources/img/museumImg/";
 %>
 <form>
 	<table class="table table-hover">
-		<tr class="table-secondary"r id="title">
+		<tr class="table-primary"r id="title">
 			<th>번호</th>
 			<th>미술관명</th>
 			<th>미술관 사진</th>
