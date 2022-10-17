@@ -36,7 +36,7 @@ col totalfloor for a10;
 commit;
 
 select * from museum;
-
+---------------------------------------------------------
 
 drop table reservation cascade constraints;
 create table reservation(
@@ -66,11 +66,11 @@ no number primary key,
 title varchar2(100),
 startday date,
 endday date,
-museum varchar2(30),
-place varchar2(60),
+museum varchar2(50),
+place varchar2(70),
 painter varchar2(100),
 img varchar2(60),
-content varchar2(500),
+content varchar2(2000),
 sponsor varchar2(100),
 count number,
 price number,

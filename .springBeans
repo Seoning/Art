@@ -9,6 +9,7 @@
 	<configs>
 		<config>src/main/webapp/WEB-INF/spring/appServlet/museum-context.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/appServlet/exhibition-context.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/reservation-context.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

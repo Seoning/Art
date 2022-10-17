@@ -36,7 +36,10 @@
         	#eb_img{
         		width:500px;
         	}
-        	
+        	.card{
+        		width:400px;
+        		margin: auto;
+        	}
         </style>
     <script type="text/javascript">
     	
@@ -53,24 +56,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                        
-                    	<li class="nav-item dropdown">
-	                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Museum</a>
-	                        <div class="dropdown-menu">
-	                          <a class="dropdown-item" href="list.mu">목록보기</a>
-	                          <a class="dropdown-item" href="insert.mu">추가하기</a>
-	                        </div>
-                      	</li>
-                      	
-                    	<li class="nav-item dropdown">
-	                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Exhibition</a>
-	                        <div class="dropdown-menu">
-	                          <a class="dropdown-item" href="exlist.ex">목록보기</a>
-	                          <a class="dropdown-item" href="exinsert.ex">추가하기</a>
-	                        </div>
-                      	</li>
-                      
+                        <!-- <li class="nav-item"><a class="nav-link" href="#services">Services</a></li> -->
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">Museum</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">Exhibition</a></li>
                         <li class="nav-item"><a class="nav-link" href="#team">Shop</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     </ul>
@@ -81,12 +69,12 @@
         <header class="masthead" style="background: url('./resources/img/art_15964966087257_de821c.jpg')">
             <div class="container">
                 <div class="masthead-subheading">Art_See</div>
-                <div class="masthead-heading text-uppercase">Korea National Gallery</div>
-                <a class="btn btn-primary btn-xl text-uppercase" href="#services">Start</a>
+                <div class="masthead-heading text-uppercase">Korea National Gallery</a></div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#portfolio">Start</a>
             </div>
         </header>
         <!-- Services-->
-        <section class="page-section" id="services">
+       <!--  <section class="page-section" id="services">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Reservation</h2>
@@ -118,7 +106,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- Portfolio Grid-->
         <section class="page-section bg-light" id="portfolio">
             <div class="container">
@@ -153,28 +141,24 @@
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Exhibition</h2>
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-                <ul class="timeline">
-                <c:forEach var="eb" items="${elists }">
-                    <li>
-                        <div class="timeline-image">
-                        	<a href="detail.ex?no=${eb.no }"><img id="eb_img" class="img-fluid" src="<%=request.getContextPath() %>/resources/img/exhib/${eb.img}" alt="..."/></a>
-                        </div>
-                        <h4>${eb.title}</h4>
-                        <h4 class="subheading">
-                            <fmt:parseDate var="startday" value="${eb.startday }" pattern="yyyy-MM-dd"/>
+             </div>
+             	<c:forEach var="eb" items="${elists }">
+	              <div class="card">
+	                <div class="card-body">
+	                  <h4 class="card-title">${eb.title}</h4>
+	                  <h6 class="card-subtitle mb-2 text-muted">
+							<fmt:parseDate var="startday" value="${eb.startday }" pattern="yyyy-MM-dd"/>
 							<fmt:formatDate value="${startday }" var="startday" pattern="yyyy-MM-dd"/>
 							<fmt:parseDate var="endday" value="${eb.endday }" pattern="yyyy-MM-dd"/>
 							<fmt:formatDate value="${endday }" var="endday" pattern="yyyy-MM-dd"/>
 							${startday }&nbsp;~&nbsp;${endday }
-                         </h4>
-                        
-                         <div class="timeline-body">
-                         	<p class="text-muted">${eb.content}</p>
-                         </div>
-                    </li>
-                </c:forEach>
-                </ul>
+					  </h6>
+	                  <a href="udetail.ex?no=${eb.no }"><img id="eb_img" class="img-fluid" src="<%=request.getContextPath() %>/resources/img/exhib/${eb.img}" alt="..." width=350/></a>
+	                 <p class="card-text"> <center><strong><mark>${eb.museum }</mark></strong></center></p>
+	                </div>
+	              </div>
+	              <br>
+	         </c:forEach>
             </div>
         </section>
         <!-- Team-->
