@@ -36,6 +36,9 @@ col totalfloor for a10;
 commit;
 
 select * from museum;
+
+insert into museum values(m_seq.nextval, '국립현대미술관','서울특별시 종로구 삼청로5길 30','3701-9500','연중무휴','B2,B1,1F,2F','10:00','18:00','수,토','교육,전시','국립현대.jfif');
+
 ---------------------------------------------------------
 
 drop table reservation cascade constraints;
@@ -87,7 +90,7 @@ nocache
 commit;
 
 insert into exhibition values(ex_seq.nextval, 'sd','2022-10-14','2022-10-15','국립현대미술관',
-'B2','sdf','현대모네.jfif','sd','sd',123,1,0);
+'B2','sdf','현대모네.jfif','sd','sd',123,0,0);
 
 ----------------------------------
 
