@@ -88,3 +88,33 @@ commit;
 
 insert into exhibition values(ex_seq.nextval, 'sd','2022-10-14','2022-10-15','국립현대미술관',
 'B2','sdf','현대모네.jfif','sd','sd',123,1,0);
+
+----------------------------------
+
+drop table member cascade constraints;
+
+create table member(
+no number primary key,
+id varchar2(16) unique,
+pw varchar2(12) not null,
+name varchar2(15) not null,
+address varchar2(200) not null,
+phone number not null,
+cn1 number not null,
+cn2 number not null,
+signup_day date default sysdate
+);
+
+drop sequence mem_seq;
+
+create sequence mem_seq
+start with 1
+increment by 1
+nocache
+;
+
+insert into member values(mem_seq.nextval, 'admin','1234','관리자', '서울시 서대문구 중앙정보처리','01096599604','123456','1234567',sysdate);
+
+commit;
+
+

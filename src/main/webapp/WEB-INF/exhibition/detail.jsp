@@ -55,7 +55,7 @@
 <br>
 <center>
 	<input type="button" value="이전으로" onclick="history.back()" class="btn btn-secondary">
-	<input type="button" value="예약하기" onclick="location.href='reservation.re?no=${eb.no}'" class="btn btn-primary">
+	<input type="button" value="예약하기" onclick="location.href='reservation.re?no=${eb.no}&count=0'" class="btn btn-primary">
 </center>	
 
 <br><br>

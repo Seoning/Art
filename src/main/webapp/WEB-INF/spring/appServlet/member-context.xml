@@ -6,21 +6,18 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
-<mvc:annotation-driven></mvc:annotation-driven>
 
-	
+	<mvc:annotation-driven></mvc:annotation-driven>
+
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/museum"/>
+		<property name="prefix" value="/WEB-INF/member"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	
-	<context:component-scan base-package="museum"/>
 	<context:component-scan base-package="exhibition"/>
+	<context:component-scan base-package="museum"/>
 	<context:component-scan base-package="member"/>
+	<context:component-scan base-package="reservation"/>
 	
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSize" value="10485760"/>
-		<property name="defaultEncoding" value="UTF-8"/>
-	</bean>
-	
+
 </beans>
