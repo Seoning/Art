@@ -14,10 +14,18 @@
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	
+	
 	<context:component-scan base-package="exhibition"/>
 	<context:component-scan base-package="museum"/>
 	<context:component-scan base-package="member"/>
 	<context:component-scan base-package="reservation"/>
-	
+
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
+	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/> 
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+	    <property name="order" value="0"/>
+	</bean>          
 
 </beans>
+
+	

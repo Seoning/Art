@@ -47,7 +47,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    	<li class="nav-item dropdown">
+	                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Member</a>
+	                        <div class="dropdown-menu">
+	                          <a class="dropdown-item" href="list.mem">목록보기</a>
+	                        </div>
+                      	</li>
                         
                     	<li class="nav-item dropdown">
 	                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Museum</a>
