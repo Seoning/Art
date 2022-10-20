@@ -182,19 +182,7 @@
         </div>
         </c:forEach>
         
-        <script type="text/javascript">
-        	function blankCheck(){
-        		if(login.id.value == ""){
-        			alert('아이디를 입력하세요');
-        			return false;
-        		}
-        		if(login.pw.value == ""){
-        			alert('비밀번호를 입력하세요');
-        			return false;
-        		}
-        		
-        	}
-        </script>
+       
         
         
 

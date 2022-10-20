@@ -3,7 +3,7 @@
 <%@include file="/WEB-INF/Top&Bottom/Top.jsp" %>
 <style>
 	.card{
-		height: 1000px;
+		height: 50%;
 		margin:auto;
 	}
 	.col-xs-3{
@@ -33,8 +33,7 @@
 		$('#button-addon2').click(function(){
 			//alert(2);
 			var id = $('input[name="id"]').val();
-			//alert(id);
-			
+			alert(id);
 			if(id == ""){
 				alert('아이디를 입력하세요');
 				return;
@@ -95,12 +94,10 @@
 		
 		$('input[name="repw"]').keydown(function(){
 			$('#repwmsg').css("display","none");
-		})
+		});
 		
 		
 	});
-
-	
 </script>
 
 
@@ -118,7 +115,7 @@
 	                <div class="form-group">
 	                  <div class="input-group mb-3">
 	                    <input type="text" class="form-control" placeholder="6~16자 이내로 입력하세요" value="${memberBean.id }"
-	                    aria-label="" name="id" aria-describedby="button-addon2">
+	                    name="id" aria-describedby="button-addon2">
 	                    <button class="btn btn-primary" type="button" id="button-addon2">중복확인</button>
 	                  </div>
 	                  	<div id="msg"></div>

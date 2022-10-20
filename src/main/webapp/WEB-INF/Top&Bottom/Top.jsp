@@ -77,7 +77,7 @@
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     	<c:if test="${login_Info.id ne null }">
 	                    	<li class="nav-item">
-	                    		<a class="nav-link" >${login_Info.name }님 안녕하세요</a>
+	                    		<a class="nav-link" href="mypage.mem?no=${login_Info.no }">${login_Info.name }님 안녕하세요</a>
 	                    	</li>
                     	</c:if>
                     </ul>
@@ -98,6 +98,23 @@
                 </c:if>
             </div>
         </header>
+        
+         <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.js"></script>
+         <script type="text/javascript">
+        	$(document).ready(function(){
+        		$('#bt').click(function(){
+        			//alert(1);
+        			if($('input[name="id"]').val()==""){
+        				alert('아이디를 입력하세요');
+        				return false;
+        			}
+        			else if($('input[name="pw"]').val()==""){
+        				alert('비밀번호를 입력하세요');
+        				return false;
+        			}
+        		});
+        	});
+        </script>
         
         
          <div class="portfolio-modal modal fade" id="login" tabindex="-1" role="dialog" aria-hidden="true">
@@ -126,9 +143,9 @@
 										           	비밀번호&nbsp;&nbsp;:&nbsp;&nbsp;<input type="password" name="pw" placeholder="비밀번호를 입력하세요" class="form-control col-xs-3" style="display: inline-block;"><br><br>
 										            <br>
 										            <center>
-										            	<a class="portfolio-link btn btn-primary btn-xl text-uppercase" data-bs-toggle="modal" href="#findId">아이디 찾기</a>
-										            	<input type="submit" value="로그인" id="bt" class="btn btn-primary" onclick="blankCheck()">
-										            	<input type="button" value="회원가입" id="bt" class="btn btn-outline-primary" onclick="location.href='signUp.mem'">
+										            	<a class="portfolio-link btn btn-primary text-uppercase" data-bs-toggle="modal" href="#findId">아이디/비밀번호 찾기</a>
+										            	<input type="submit" value="로그인" id="bt" class="btn btn-primary">
+										            	<input type="button" value="회원가입" class="btn btn-outline-primary" onclick="location.href='signUp.mem'">
 										            </center>
 									   				</form>
 									            	<br>
@@ -164,14 +181,14 @@
 									         <div class="card border-primary mb-3" id="res">
 									          <div class="card-header">회원인증</div>
 									          <div class="card-body">
-									            <h4 class="card-title">아이디 찾기</h4><br>
+									            <h4 class="card-title">아이디/비밀번호 찾기</h4><br>
 									            <form action="findId.mem" name="findId">
 										            성함&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										            <input type="text" placeholder="성함을 입력하세요" name="name" class="form-control col-xs-3" style="display: inline-block;"><br><br>
 										           	핸드폰번호&nbsp;&nbsp;:&nbsp;&nbsp;<input type="text" name="phone" placeholder="-를 제외하고 입력하세요" class="form-control col-xs-3" style="display: inline-block;"><br><br>
 										            <br>
 										            <center>
-										            	<input type="submit" value="아이디 찾기" id="bt" class="btn btn-primary" onclick="blankCheck()">
+										            	<input type="submit" value="아이디/비밀번호 찾기" id="bt" class="btn btn-primary">
 										            	<input type="button" value="회원가입" id="bt" class="btn btn-outline-primary" onclick="location.href='signUp.mem'">
 										            </center>
 									   				</form>
