@@ -28,5 +28,8 @@
   		 where no = #{no}
   	</update>
   	
+  	<select id="GetByTitle" resultType="exhibition">
+  		select * from exhibition where title = #{title}
+  	</select>
   	
   </mapper>

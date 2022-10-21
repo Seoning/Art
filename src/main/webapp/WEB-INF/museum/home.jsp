@@ -1,7 +1,19 @@
 <%@page import="member.model.MemberBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@include file="/WEB-INF/Top&Bottom/Top.jsp" %>
+   <%@include file="/WEB-INF/common/common.jsp" %>	
+	
+<c:if test="${not empty login_Info.id }">
+	<c:if test="${login_Info.id eq 'admin' }">
+		<%@include file="/WEB-INF/Top&Bottom/Admin_Top.jsp" %>
+	</c:if>
+	<c:if test="${login_Info.id ne 'admin' }">
+		<%@include file="/WEB-INF/Top&Bottom/Top.jsp" %>
+	</c:if>
+</c:if>
+<c:if test="${empty login_Info.id }">
+	<%@include file="/WEB-INF/Top&Bottom/Top.jsp" %>
+</c:if>
 
         <!-- Portfolio Grid-->
         <section class="page-section bg-light" id="museum">
@@ -16,9 +28,7 @@
                         <!-- Portfolio item 1-->
                         <div class="portfolio-item">
                             <a class="portfolio-link" data-bs-toggle="modal" href="#${mb.name }">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
+                                
                                 <img class="img-fluid" src="<%=request.getContextPath() %>/resources/img/museumImg/${mb.img}" alt="${mb.name}"/>
                             </a>
                             <div class="portfolio-caption">
@@ -28,6 +38,7 @@
                         </div>
                     </div>
                     </c:forEach>
+                    
                 </div>
             </div>
         </section>

@@ -3,12 +3,19 @@ package reservation.model;
 public class ReservationBean {
 	private int no;
 	private String id;
-	private String name;
+	private String title;
 	private String day;
-	private String time;
 	private int count;
 	private int price;
-	private int pay;
+	private String pay;
+	
+	private String museum; // No DB
+	public String getMuseum() {
+		return museum;
+	}
+	public void setMuseum(String museum) {
+		this.museum = museum;
+	}
 	public int getNo() {
 		return no;
 	}
@@ -21,23 +28,17 @@ public class ReservationBean {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getTitle() {
+		return title;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getDay() {
 		return day;
 	}
 	public void setDay(String day) {
 		this.day = day;
-	}
-	public String getTime() {
-		return time;
-	}
-	public void setTime(String time) {
-		this.time = time;
 	}
 	public int getCount() {
 		return count;
@@ -51,13 +52,13 @@ public class ReservationBean {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public int getPay() {
+	public String getPay() {
 		return pay;
 	}
-	public void setPay(int pay) {
+	public void setPay(String pay) {
 		this.pay = pay;
 	}
-	
+
 	
 	
 }

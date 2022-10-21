@@ -3,7 +3,7 @@
 <%@include file="/WEB-INF/Top&Bottom/Admin_Top.jsp" %>
 <style>
 	.table {
-		width: 70%;
+		width: 60%;
 		margin: auto;
 		}
 	#title {

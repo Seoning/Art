@@ -1,5 +1,12 @@
 package member.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import member.model.MemberBean;
 import member.model.MemberDao;
+import reservation.model.ReservationBean;
+import reservation.model.ReservationDao;
 
 @Controller
 public class Mypage_Controller {
@@ -21,6 +30,9 @@ public class Mypage_Controller {
 	String goToPage = "redirect:home.mu";
 	
 	@Autowired
+	ReservationDao rdao;
+	
+	@Autowired
 	MemberDao mdao;
 	
 	@RequestMapping(command)
@@ -28,14 +40,39 @@ public class Mypage_Controller {
 		
 		MemberBean memb = mdao.getByNo(no);
 		model.addAttribute("memb",memb);
+		
+		List<ReservationBean>lists = rdao.getById(memb.getId());
+		
+		model.addAttribute("lists",lists);
+		
 		return getPage;
 	}
 	
 	@RequestMapping(command2)
-	public String signout(int no){
+	public String signout(int no,String pw, HttpServletResponse response, HttpSession session) throws IOException{
 		
-		mdao.deleteByNo(no);
+		MemberBean memb = mdao.getByNo(no);
 		
+		System.out.println("pw:"+pw);
+		System.out.println("pw:"+memb.getPw());
+		
+		
+		response.setContentType("text/html; chatset=UTF-8");
+		PrintWriter writer = null;
+		if(memb.getPw().equals(pw)) {
+			writer = response.getWriter();
+			writer.println("<script>alert('회원탈퇴가 완료 되었습니다.');</script>");
+			writer.println("<script>location.href='home.mu'</script>");
+			mdao.deleteByNo(no);
+			session.invalidate();
+			writer.flush();
+		}
+		else {
+			writer = response.getWriter();
+			writer.println("<script>alert('비밀번호가 일치하지 않습니다.');</script>");
+			writer.println("<script>location.href='mypage.mem?no="+memb.getNo()+"'</script>");
+			writer.flush();
+		}
 		return goToPage;
 	}
 	

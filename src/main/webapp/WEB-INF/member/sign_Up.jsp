@@ -3,6 +3,7 @@
 <%@include file="/WEB-INF/Top&Bottom/Top.jsp" %>
 <style>
 	.card{
+		width : 40%;
 		height: 50%;
 		margin:auto;
 	}
@@ -32,8 +33,8 @@
 		//alert(1);
 		$('#button-addon2').click(function(){
 			//alert(2);
-			var id = $('input[name="id"]').val();
-			alert(id);
+			var id = $('input[id="id"]').val();
+			
 			if(id == ""){
 				alert('아이디를 입력하세요');
 				return;
@@ -77,10 +78,9 @@
 		}); //submit
 		
 		$('input[name="repw"]').blur(function(){
-			var pw = $('input[name="pw"]').val();
+			var pw = $('input[id="pw"]').val();
 			var repw = $('input[name="repw"]').val();
-/* 			alert(pw);
-			alert(repw); */
+			
 			if(pw != repw){
 				$('#repwmsg').html("비밀번호가 일치하지 않습니다");
 				$('#repwmsg').show();
@@ -104,7 +104,7 @@
 <br>
 <div id="row">
 	 <div class="bs-component">
-	   <div class="card border-primary mb-3" style="max-width: 50rem;">
+	   <div class="card border-primary mb-3">
 	     <div class="card-header">Sign up for Art_See</div>
 		<form:form action="signUp.mem" method="post" class="form-group row" commandName="memberBean">
 	       <div class="card-body">
@@ -115,7 +115,7 @@
 	                <div class="form-group">
 	                  <div class="input-group mb-3">
 	                    <input type="text" class="form-control" placeholder="6~16자 이내로 입력하세요" value="${memberBean.id }"
-	                    name="id" aria-describedby="button-addon2">
+	                    name="id" id="id" aria-describedby="button-addon2">
 	                    <button class="btn btn-primary" type="button" id="button-addon2">중복확인</button>
 	                  </div>
 	                  	<div id="msg"></div>
@@ -125,7 +125,7 @@
 	              
 	              <div class="form-group">
 	                <label class="form-label mt-4">비밀번호</label>
-	                <input type="password" class="form-control" name="pw" value="${memberBean.pw }">
+	                <input type="password" class="form-control" name="pw" id="pw" value="${memberBean.pw }">
 	                <form:errors cssClass="err" path="pw" />
 	              </div>
 	

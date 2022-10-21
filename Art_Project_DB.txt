@@ -52,12 +52,11 @@ drop table reservation cascade constraints;
 create table reservation(
 no number primary key,
 id varchar2(20),
-name varchar2(15),
+title varchar2(200),
 day varchar2(20),
-time varchar2(20),
 count number,
 price varchar2(10),
-pay number
+pay varchar2(40)
 );
 
 drop sequence r_seq;
@@ -65,6 +64,9 @@ create sequence r_seq
 start with 1
 increment by 1
 nocache;
+
+insert into reservation values(r_seq.nextval, 'abc12','현대차 시리즈 2022: 최우람 - 작은 방주','2022-10-24','1','4000','신용카드');
+
 commit;
 
 ----------
@@ -73,7 +75,7 @@ drop table exhibition cascade constraints;
 
 create table exhibition( --27
 no number primary key,
-title varchar2(100),
+title varchar2(200),
 startday date,
 endday date,
 museum varchar2(50),

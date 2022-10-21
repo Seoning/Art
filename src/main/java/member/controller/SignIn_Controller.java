@@ -26,7 +26,7 @@ public class SignIn_Controller {
 	@Autowired
 	MemberDao mdao;
 	
-	@RequestMapping(command)
+	@RequestMapping(command) //login
 	public String signin(String id, String pw,HttpSession session, HttpServletResponse response) throws IOException {
 		
 		System.out.println("id:"+id);
@@ -47,13 +47,11 @@ public class SignIn_Controller {
 			writer.println("<script>location.href='home.mu'</script>");
 			writer.flush();
 		}
-		else {
-			session.setAttribute("login_Info", mb);
-			return getPage;
-		}
+		
+		session.setAttribute("login_Info", mb);
+			
 		return getPage;
 	}
-	
 	
 	@RequestMapping(command2)
 	public String logout(HttpSession session) {

@@ -52,6 +52,7 @@ public class SignUp_Controller {
 			Model model) {
 		
 		System.out.println("name:"+mb.getName());
+		System.out.println("phone:"+mb.getPhone());
 		
 		
 		if(result.hasErrors()) {

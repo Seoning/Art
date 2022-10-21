@@ -37,6 +37,11 @@ public class ExhibitionDao {
 		int update = sqlSessionTemplate.update(namespace+".UpdateExhibition",eb);
 		System.out.println("update:"+update);
 	}
+
+	public ExhibitionBean getByTitle(String title) {
+		ExhibitionBean eb = sqlSessionTemplate.selectOne(namespace+".GetByTitle",title);
+		return eb;
+	}
 	
 	
 	

@@ -5,10 +5,48 @@
   
   <mapper namespace="reservation.model.Reservation">
   
+  	<select id="GetById" resultType="reservation">
+  		select * from reservation where id = #{id} order by no desc
+  	</select>
   
+  	<insert id="InsertData">
+  		insert into reservation values(r_seq.nextval, #{id}, #{title}, #{day}, #{count}, #{price}, #{pay})
+  	</insert>
   
-  
-  
-  
+  	<select id="GetByNo" resultType="reservation">
+  		select * from reservation where no = #{no}
+  	</select>
+  	
+  	<delete id="DeleteByNo">
+  		delete reservation where no = #{no}
+  	</delete>
+  	
+  	<select id="GetAll" resultType="reservation">
+  		select * from reservation 
+  		<if test="whatColumn == 'title'">
+  			where title like #{keyword}
+  		</if>
+  		<if test="whatColumn == 'id'">
+  			where id like #{keyword}
+  		</if>
+  		<if test="whatColumn == ''">
+  			where id like #{keyword} or title like #{keyword}
+  		</if>
+  		 order by no desc
+  	</select>
+  	
+  	<select id="GetTotalCount" resultType="int">
+  		select count(*) from reservation 
+  		<if test="whatColumn == 'title'">
+  			where title like #{keyword}
+  		</if>
+  		<if test="whatColumn == 'id'">
+  			where id like #{keyword}
+  		</if>
+  		<if test="whatColumn == ''">
+  			where id like #{keyword} or title like #{keyword}
+  		</if>
+  		 order by no desc
+  	</select>
   
   </mapper>
