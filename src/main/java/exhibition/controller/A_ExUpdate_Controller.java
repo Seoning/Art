@@ -2,6 +2,7 @@ package exhibition.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 
@@ -14,6 +15,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import exhibition.model.ExhibitionBean;
 import exhibition.model.ExhibitionDao;
+import museum.model.MuseumBean;
+import museum.model.MuseumDao;
 
 @Controller
 public class A_ExUpdate_Controller {
@@ -25,6 +28,9 @@ public class A_ExUpdate_Controller {
 	ExhibitionDao edao;
 	
 	@Autowired
+	MuseumDao mdao;
+	
+	@Autowired
 	ServletContext config;
 	
 	@RequestMapping(value= command,method=RequestMethod.GET)
@@ -32,6 +38,9 @@ public class A_ExUpdate_Controller {
 		System.out.println("no:"+no);
 		ExhibitionBean eb = edao.getByNo(no);
 		model.addAttribute("eb",eb);
+		
+		List<MuseumBean> lists = mdao.getMuseumList();
+		model.addAttribute("lists",lists);
 		return getPage;
 	}
 	

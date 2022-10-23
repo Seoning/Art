@@ -29,7 +29,7 @@ public class HomeController {
 		List<MuseumBean>lists =  mdao.getMuseumList();
 		model.addAttribute("lists",lists);
 		
-		List<ExhibitionBean> elists = edao.getAllEx();
+		List<ExhibitionBean> elists = edao.getExByEndday();
 		model.addAttribute("elists",elists);
 		
 		

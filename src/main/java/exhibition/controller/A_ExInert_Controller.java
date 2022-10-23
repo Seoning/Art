@@ -2,6 +2,7 @@ package exhibition.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 
@@ -14,6 +15,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import exhibition.model.ExhibitionBean;
 import exhibition.model.ExhibitionDao;
+import museum.model.MuseumBean;
+import museum.model.MuseumDao;
 
 @Controller
 public class A_ExInert_Controller {
@@ -25,11 +28,15 @@ public class A_ExInert_Controller {
 	ExhibitionDao edao;
 	
 	@Autowired
+	MuseumDao mdao;
+	
+	@Autowired
 	ServletContext applicaion;
 	
 	@RequestMapping(value=command,method = RequestMethod.GET)
-	public String insert() {
-		
+	public String insert(Model model) {
+		List<MuseumBean> lists = mdao.getMuseumList();
+		model.addAttribute("lists",lists);
 		return getPage;
 	}
 	

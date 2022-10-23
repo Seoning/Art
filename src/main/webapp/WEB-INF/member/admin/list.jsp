@@ -5,7 +5,7 @@
 <style>
 	.table{
 		margin: auto;
-		width: 50%;
+		width: 80%;
 	}
 	tr:first-child {
 		text-align: center;

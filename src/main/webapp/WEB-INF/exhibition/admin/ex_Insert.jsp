@@ -38,11 +38,9 @@
 			<th class="table-primary"  scope="row"  >전시회장</th>
 			<td scope="row">
 				<select name="museum">
-					<option value="국립현대미술관">국립현대미술관</option>
-					<option value="국립현대미술관_덕수궁">국립현대미술관_덕수궁</option>
-					<option value="국립현대미술관_과천">국립현대미술관_과천</option>
-					<option value="국립현대미술관_청주">국립현대미술관_청주</option>
-					<option value="국립중앙미술관">국립중앙미술관</option>
+					<c:forEach var="mb" items="${lists }">
+						<option value="${mb.name }">${mb.name }</option>
+					</c:forEach>
 				</select>
 			</td>
 		</tr>
@@ -77,7 +75,7 @@
 		</tr>
 		<tr>
 			<th class="table-primary"  scope="row"  >관람료</th>
-			<td scope="row"><input type="text" class="form-control" name="price"></td>
+			<td scope="row"><input type="text" class="form-control" placeholder="관람료가 무료라면 0으로 입력하세요" name="price"></td>
 		</tr>
 		<tr>
 			<th class="table-primary"  scope="row"  >총 작품 수</th>

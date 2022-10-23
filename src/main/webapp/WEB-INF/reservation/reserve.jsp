@@ -120,11 +120,12 @@
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$('#pay').click(function(){
+			$('#submit').click(function(){
 				if($('input[id="id"]').val()==""){
 					alert('비회원은 예약이 불가능합니다.');
 					return false;
 				}
+				//pay valid check
 			});
 		});
 	</script>
@@ -162,11 +163,11 @@
  			</font>
  			<br><br>
             <strong>결제방법</strong>&nbsp;:&nbsp;
- 			<input type="radio" name="pay" value="card" id="card" class="form-check-input">신용카드  
- 			<input type="radio" name="pay" value="account" id="account" class="form-check-input">무통장입금  
+ 			<input type="radio" name="pay" value="card" id="pay" class="form-check-input">신용카드  
+ 			<input type="radio" name="pay" value="account" id="pay" class="form-check-input">무통장입금  
         	<br>
             <center>
-        		<input type="submit" value="결제하기" class="btn btn-primary" style="margin-top: 5px;" id="pay">
+        		<input type="submit" value="결제하기" class="btn btn-primary" style="margin-top: 5px;" id="submit">
             </center>
           </div>
         </div>

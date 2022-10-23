@@ -21,7 +21,7 @@ import museum.model.MuseumDao;
 public class A_MuseumUpdate_Controller {
 	final String command = "update.mu";
 	String getPage = "/admin/museum_Update";
-	String goToPage="redirect:detail.ex";
+	String goToPage="redirect:detail.mu";
 	
 	@Autowired
 	MuseumDao mdao;

@@ -42,6 +42,11 @@ public class ExhibitionDao {
 		ExhibitionBean eb = sqlSessionTemplate.selectOne(namespace+".GetByTitle",title);
 		return eb;
 	}
+
+	public List<ExhibitionBean> getExByEndday() {
+		List<ExhibitionBean> elists = sqlSessionTemplate.selectList(namespace+".GetExByEndday");
+		return elists;
+	}
 	
 	
 	

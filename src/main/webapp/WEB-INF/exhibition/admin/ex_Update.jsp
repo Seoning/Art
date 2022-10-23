@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/Top&Bottom/Admin_Top.jsp" %>
-ex_Update.jsp<br>
 <style>
 	.table {
-	width: 50%;
+	width: 80%;
 	margin: auto;
 	}
 	#ph {
@@ -38,11 +37,9 @@ ex_Update.jsp<br>
 			<th scope="row" id="title">전시회장</th>
 			<td scope="row">
 				<select name="museum">
-					<option value="국립현대미술관" <c:if test="${eb.museum.equals('국립현대미술관') }"> selected</c:if>>국립현대미술관</option>
-					<option value="국립현대미술관_덕수궁" <c:if test="${eb.museum.equals('국립현대미술관_덕수궁') }"> selected</c:if>>국립현대미술관_덕수궁</option>
-					<option value="국립현대미술관_과천" <c:if test="${eb.museum.equals('국립현대미술관_과천') }"> selected</c:if>>국립현대미술관_과천</option>
-					<option value="국립현대미술관_청주" <c:if test="${eb.museum.equals('국립현대미술관_청주') }"> selected</c:if>>국립현대미술관_청주</option>
-					<option value="국립중앙미술관" <c:if test="${eb.museum.equals('국립중앙미술관') }"> selected</c:if>>국립중앙미술관</option>
+					<c:forEach var="mb" items="${lists }">
+						<option value="${mb.name }">${mb.name }</option>
+					</c:forEach>
 				</select>
 			</td>
 		</tr>
