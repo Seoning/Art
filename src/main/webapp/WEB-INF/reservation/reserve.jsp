@@ -36,7 +36,7 @@
 		
 		$('#plus').click(function(){
 			var count = $('input[name="count"]').val();
-			alert(count);
+			//alert(count);
 			if(isNaN(parseInt(count))){
 				count = 0;
 			}
@@ -45,9 +45,10 @@
 		
 		$('#minus').click(function(){
 			var count = $('input[name="count"]').val();
-			alert(count);
+			//alert(count);
 			location.href="minus.re?count="+count+"&no=${eb.no}&day=${day}";
 		});
+	
 		
 	});
 </script>
@@ -65,6 +66,8 @@
           <div class="card-body">
             <h4 class="card-title">로그인</h4><br>
             <form action="login.mem" name="login">
+            <input type="hidden" name="eno" value="${eb.no }">
+            <input type="hidden" name="count" value="${eb.count}">
 	            아이디&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	            <input type="text" placeholder="아이디를 입력하세요" name="id" class="form-control col-xs-3" style="display: inline-block;"><br><br>
 	           	비밀번호&nbsp;&nbsp;:&nbsp;&nbsp;<input type="password" name="pw" placeholder="비밀번호를 입력하세요" class="form-control col-xs-3" style="display: inline-block;"><br><br>
@@ -118,7 +121,7 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('#pay').click(function(){
-				if($('input[name="id"]').val()==""){
+				if($('input[id="id"]').val()==""){
 					alert('비회원은 예약이 불가능합니다.');
 					return false;
 				}
@@ -133,7 +136,7 @@
       	<input type="hidden" name="title" value="${eb.title }">
       	<input type="hidden" name="museum" value="${eb.museum }">
       	<input type="hidden" name="price" value="${eb.price }">
-      	<input type="hidden" name="id" value="${login_Info.id}">
+      	<input type="hidden" name="id" id="id" value="${login_Info.id}">
       	<input type="hidden" name="no" value="${login_Info.no}">
       	
          <div class="card border-primary mb-3"  id="reserve">

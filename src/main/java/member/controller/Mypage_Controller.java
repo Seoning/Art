@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import board.model.BoardBean;
+import board.model.BoardDao;
 import member.model.MemberBean;
 import member.model.MemberDao;
 import reservation.model.ReservationBean;
@@ -35,6 +37,9 @@ public class Mypage_Controller {
 	@Autowired
 	MemberDao mdao;
 	
+	@Autowired
+	BoardDao bdao;
+	
 	@RequestMapping(command)
 	public String mypage(int no, Model model) {
 		
@@ -42,9 +47,10 @@ public class Mypage_Controller {
 		model.addAttribute("memb",memb);
 		
 		List<ReservationBean>lists = rdao.getById(memb.getId());
-		
 		model.addAttribute("lists",lists);
 		
+		List<BoardBean> blists = bdao.getById(memb.getId());
+		model.addAttribute("blists",blists);
 		return getPage;
 	}
 	

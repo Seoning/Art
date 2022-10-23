@@ -108,7 +108,19 @@
 	                        </div>
                       	</li>
                         <li class="nav-item"><a class="nav-link" href="A_list.re">Reservation</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item dropdown">
+	                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Contact</a>
+	                        <div class="dropdown-menu">
+	                          <a class="dropdown-item" href="list.bd">목록보기</a>
+	                          <a class="dropdown-item" href="a_insert.bd">등록하기</a>
+	                        </div>
+                      	</li>
+                        
+                        <c:if test="${login_Info.id ne null }">
+	                    	<li class="nav-item">
+	                    		<a class="nav-link" href="">${login_Info.name }님 안녕하세요</a>
+	                    	</li>
+                    	</c:if>
                     </ul>
                 </div>
             </div>
@@ -121,3 +133,7 @@
                 <a class="portfolio-link btn btn-primary btn-xl text-uppercase" href="logout.mem">Logout</a>
             </div>
         </header>
+        
+        
+        
+<%@include file="/WEB-INF/Top&Bottom/AllModal.jsp" %>

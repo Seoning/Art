@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import member.model.MemberBean;
 import member.model.MemberDao;
@@ -27,10 +28,11 @@ public class SignIn_Controller {
 	MemberDao mdao;
 	
 	@RequestMapping(command) //login
-	public String signin(String id, String pw,HttpSession session, HttpServletResponse response) throws IOException {
+	public String signin(String id, String pw, @RequestParam(required=false) String eno, HttpSession session, HttpServletResponse response) throws IOException {
 		
 		System.out.println("id:"+id);
 		System.out.println("pw:"+pw);
+		System.out.println("eno:"+eno);
 		
 		Map<String,String> map = new HashMap<String,String>();
 		
@@ -49,7 +51,10 @@ public class SignIn_Controller {
 		}
 		
 		session.setAttribute("login_Info", mb);
-			
+		
+		if(eno != null) {
+			return "redirect:reservation.re?no="+eno+"&count="+0;
+		}
 		return getPage;
 	}
 	

@@ -1,40 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/Top&Bottom/Admin_Top.jsp" %>
-ex_Insert.jsp<br>
 <style>
 	.table {
-	width: 50%;
-	margin: auto;
+		width: 80%;
+		margin: auto;
 	}
 	#ph {
 		width: 390px;
 		display: inline;
 	}
-	#title {
-		text-align: center;
-	}
 	.err{
 		font-size: 10px;
 		color: red;
+	}
+	th{
+		font-weight: bolder;
+		width: 150px;
+		text-align: center;
 	}
 </style>
 
  <form:form action="exinsert.ex" method="post" enctype="multipart/form-data">
 	<table class="table table-hover">
-		<tr class="table-primary" id="title">
+		<tr class="table-primary"  >
 			<th scope="row" colspan="2">전시회 등록하기</th>
 		</tr>
 		<tr>
-			<th scope="row" id="title">전시명</th>
+			<th class="table-primary"  scope="row"  >전시명</th>
 			<td scope="row"><input type="text" class="form-control" name="title"></td>
 		</tr>
 		<tr>
-			<th scope="row" id="title">작가명</th>
+			<th class="table-primary"  scope="row"  >작가명</th>
 			<td scope="row"><input type="text" class="form-control" name="painter"></td>
 		</tr>
 		<tr>
-			<th scope="row" id="title">전시회장</th>
+			<th class="table-primary"  scope="row"  >전시회장</th>
 			<td scope="row">
 				<select name="museum">
 					<option value="국립현대미술관">국립현대미술관</option>
@@ -46,7 +47,7 @@ ex_Insert.jsp<br>
 			</td>
 		</tr>
 		<tr>
-			<th scope="row" id="title">위치</th>
+			<th class="table-primary"  scope="row"  >위치</th>
 			<td scope="row">
 			<select name="place">
 					<option value="B2">B2</option>
@@ -59,31 +60,31 @@ ex_Insert.jsp<br>
 			</select></td>
 		</tr>
 		<tr>
-			<th scope="row" id="title">시작일</th>
+			<th class="table-primary"  scope="row"  >시작일</th>
 			<td scope="row"><input type="date" class="form-control" name="startday"></td>
 		</tr>
 		<tr>
-			<th scope="row" id="title">종영일</th>
+			<th class="table-primary"  scope="row"  >종영일</th>
 			<td scope="row"><input type="date" class="form-control" name="endday"></td>
 		</tr>
 		<tr>
-			<th scope="row" id="title">전시소개</th>
+			<th class="table-primary"  scope="row"  >전시소개</th>
 			<td scope="row"><textarea name="content" cols="88" rows="5" ></textarea></td>
 		</tr>
 		<tr>
-			<th scope="row" id="title">후원기관</th>
+			<th class="table-primary"  scope="row"  >후원기관</th>
 			<td scope="row"><input type="text" class="form-control" name="sponsor"></td>
 		</tr>
 		<tr>
-			<th scope="row" id="title">관람료</th>
+			<th class="table-primary"  scope="row"  >관람료</th>
 			<td scope="row"><input type="text" class="form-control" name="price"></td>
 		</tr>
 		<tr>
-			<th scope="row" id="title">총 작품 수</th>
+			<th class="table-primary"  scope="row"  >총 작품 수</th>
 			<td scope="row"><input type="text" class="form-control" name="count"></td>
 		</tr>
 		<tr>
-			<th scope="row" id="title">첨부사진</th>
+			<th class="table-primary"  scope="row"  >첨부사진</th>
 			<td scope="row">
 				<input type="file" class="form-control" name="upload">
 			</td>

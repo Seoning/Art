@@ -135,3 +135,112 @@ insert into member values(mem_seq.nextval, 'abc12','1234','김수미', '서울�
 commit;
 
 
+---------------------------------------
+
+drop table board cascade constraints;
+
+create table board(
+no number primary key,
+title varchar2(50) not null,
+id varchar2(20) not null,
+email varchar2(30) not null,
+phone varchar2(15) not null,
+message varchar2(200) not null,
+reply number default 0, --how many have reple this.
+readcnt number default 0,
+cday date default sysdate,
+uday date default sysdate,
+dday date default sysdate,
+notice number default 0
+);
+
+drop sequence b_seq;
+
+create sequence b_seq
+start with 1
+increment by 1
+nocache
+;
+
+insert into board values(
+	b_seq.nextval,
+	'테스트',
+	'abc12',
+	'abc12@artsee.com',
+	'01096599604',
+	'내용테스트',
+	'0',
+	0,
+	sysdate,
+	null,
+	null,
+	0
+);
+insert into board values(
+	b_seq.nextval,
+	'공지되나요',
+	'admin',
+	'admin@artsee.com',
+	'01096599604',
+	'공지사항 올라가야ㅙ',
+	'0',
+	0,
+	sysdate,
+	null,
+	null,
+	1
+);
+
+commit;
+
+
+-------------------------------
+
+
+drop table reply cascade constraints;
+
+create table reply(
+reno number, --connect with board no
+no number primary key,
+id varchar2(30) not null,
+content varchar2(200) not null,
+cday date default sysdate,
+uday date default sysdate,
+foreign key (reno) references board(no)
+);
+
+drop sequence rp_seq;
+
+create sequence rp_seq
+start with 1
+increment by 1
+nocache
+;
+
+
+insert into reply values(1,rp_seq.nextval,'admin','test',sysdate,null);
+
+
+commit;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

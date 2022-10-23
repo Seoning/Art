@@ -4,7 +4,7 @@
 <%@include file="/WEB-INF/Top&Bottom/Admin_Top.jsp" %>
 <style>
 	.table {
-	width: 50%;
+	width: 80%;
 	margin: auto;
 	}
 	#title {

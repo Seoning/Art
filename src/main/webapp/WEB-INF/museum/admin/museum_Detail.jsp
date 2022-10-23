@@ -3,14 +3,13 @@
 <%@include file="/WEB-INF/Top&Bottom/Admin_Top.jsp" %>
 <style>
 	.table {
-		width: 60%;
+		width: 80%;
 		margin: auto;
 		}
 	#title {
 		text-align: center;
 		}
 </style>
-museum_Detail.jsp<br>
 <%
 String url = request.getContextPath()+"/resources/img/museumImg/";
 %>

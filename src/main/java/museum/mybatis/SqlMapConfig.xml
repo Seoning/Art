@@ -8,6 +8,8 @@
   		<typeAlias type="exhibition.model.ExhibitionBean" alias="exhibition"/>
   		<typeAlias type="reservation.model.ReservationBean" alias="reservation"/>
   		<typeAlias type="member.model.MemberBean" alias="member"/>
+  		<typeAlias type="board.model.BoardBean" alias="board"/>
+  		<typeAlias type="board.model.ReplyBean" alias="reply"/>
   	</typeAliases>
   
   	<mappers>
@@ -15,5 +17,6 @@
   		<mapper resource="museum/mybatis/exhibition.xml"/>
   		<mapper resource="museum/mybatis/reservation.xml"/>
   		<mapper resource="museum/mybatis/member.xml"/>
+  		<mapper resource="museum/mybatis/board.xml"/>
   	</mappers>
   </configuration>

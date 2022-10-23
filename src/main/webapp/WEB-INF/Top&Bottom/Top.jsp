@@ -1,10 +1,20 @@
 <%@page import="member.model.MemberBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+    <%@include file="/WEB-INF/common/common.jsp" %>
+    
+
+	<c:if test="${login_Info.id eq 'admin'}">
+		<%@include file="/WEB-INF/Top&Bottom/Admin_Top.jsp" %>
+	</c:if>
+	<c:if test="${login_Info.id ne 'admin' || empty login_Info.id }">
+		
+	
+
+    
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <%@include file="/WEB-INF/common/common.jsp" %>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -97,7 +107,7 @@
         <header class="masthead" style="background: url('./resources/img/art_15964966087257_de821c.jpg')">
             <div class="container">
                 <div class="masthead-subheading">Art_See</div>
-                <div class="masthead-heading text-uppercase">Korea National Gallery</a></div>
+                <div class="masthead-heading text-uppercase">Korea National Gallery</div>
 				<c:if test="${login_Info.id ne null }">
                 	<a class="portfolio-link btn btn-primary btn-xl text-uppercase" href="logout.mem">Logout</a>
                 </c:if>
@@ -106,6 +116,6 @@
                 </c:if>
             </div>
         </header>
-        
+ </c:if>
 <%@include file="/WEB-INF/Top&Bottom/AllModal.jsp" %>
         

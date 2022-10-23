@@ -35,6 +35,9 @@
                   <a class="nav-link active" data-bs-toggle="tab" href="#reserve">예약내역</a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" data-bs-toggle="tab" href="#contact">문의내역</a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" data-bs-toggle="tab" href="#profile">회원정보</a>
                 </li>
                 <li class="nav-item">
@@ -73,6 +76,34 @@
 	            	</table>
                 </div>
                 
+                <div class="tab-pane fade" id="contact">
+	            	<table class="table table-hover" id="table">
+						<tr class="table-primary">
+							<th scope="row">No.</th>
+							<th scope="row">제목</th>
+							<th scope="row">작성일</th>
+							<th scope="row">댓글</th>
+						</tr>
+						<c:if test="${not empty blists }">
+							<c:forEach var="bb" items="${blists }">
+							<tr class="table-light">
+								<Td>${bb.no }</Td>
+								<Td><a href="detail.bd?no=${bb.no }">${bb.title }</a></Td>
+								<Td>${bb.cday }</Td>
+								<Td>${bb.reply }</Td>
+							</tr>
+							</c:forEach>
+						</c:if>
+						<c:if test="${empty blists }">
+							<c:forEach var="bb" items="${blists }">
+							<tr class="table-primary">
+								<th scope="row" colspan="5">문의 내역이 없습니다.</th>
+							</tr>
+							</c:forEach>
+						</c:if>
+	            	</table>
+                </div>
+            
                 
                 <div class="tab-pane fade" id="profile">
 						<c:if test="${not empty login_Info}">

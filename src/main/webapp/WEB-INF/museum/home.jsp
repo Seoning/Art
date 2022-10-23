@@ -3,17 +3,9 @@
 	pageEncoding="UTF-8"%>
    <%@include file="/WEB-INF/common/common.jsp" %>	
 	
-<c:if test="${not empty login_Info.id }">
-	<c:if test="${login_Info.id eq 'admin' }">
-		<%@include file="/WEB-INF/Top&Bottom/Admin_Top.jsp" %>
-	</c:if>
-	<c:if test="${login_Info.id ne 'admin' }">
-		<%@include file="/WEB-INF/Top&Bottom/Top.jsp" %>
-	</c:if>
-</c:if>
-<c:if test="${empty login_Info.id }">
+
 	<%@include file="/WEB-INF/Top&Bottom/Top.jsp" %>
-</c:if>
+
 
         <!-- Portfolio Grid-->
         <section class="page-section bg-light" id="museum">
@@ -69,11 +61,28 @@
             </div>
         </section>
         <!-- Contact-->
+        
+        <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.js"></script>
+        <script type="text/javascript">
+        	$(document).ready(function(){
+        		
+        		
+        		$('#submitButton').click(function(){
+	        		
+        			var title = $('input[name="title"]').val();
+	        		var email = $('input[name="email"]').val();
+	        		var phone = $('input[id="phone"]').val();
+	        		var message = $('textarea[id="message"]').val();
+	        		//alert(title+"/"+phone);
+        			location.href='insert.bd?title='+title+"&email="+email+"&phone="+phone+"&message="+message;
+        		});
+        	});
+        </script>
         <section class="page-section" id="contact">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading text-uppercase"><a href="list.bd">Contact Us</a></h2>
+                    <h3 class="section-subheading text-muted">문의사항이 있으시면 남겨주세요.</h3>
                 </div>
                 <!-- * * * * * * * * * * * * * * *-->
                 <!-- * * SB Forms Contact Form * *-->
@@ -82,30 +91,31 @@
                 <!-- To make this form functional, sign up at-->
                 <!-- https://startbootstrap.com/solution/contact-forms-->
                 <!-- to get an API token!-->
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="insert.bd">
+                    <input type="hidden" name="id" value="${login_Info.id }">
                     <div class="row align-items-stretch mb-5">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <!-- Name input-->
-                                <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                                <input class="form-control" name="title" id="name" type="text" placeholder="title" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="name:required">A title is required.</div>
                             </div>
                             <div class="form-group">
                                 <!-- Email address input-->
-                                <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
+                                <input class="form-control" name="email" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
                                 <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                             </div>
                             <div class="form-group mb-md-0">
                                 <!-- Phone number input-->
-                                <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
+                                <input class="form-control" name="phone" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
                                 <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group form-group-textarea mb-md-0">
                                 <!-- Message input-->
-                                <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
+                                <textarea class="form-control" name="message" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
                                 <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                             </div>
                         </div>
@@ -119,7 +129,7 @@
                             <div class="fw-bolder">Form submission successful!</div>
                             To activate this form, sign up at
                             <br />
-                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                            <a href="insert.bd">제출</a>
                         </div>
                     </div>
                     <!-- Submit error message-->
@@ -128,7 +138,7 @@
                     <!-- an error submitting the form-->
                     <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                     <!-- Submit Button-->
-                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
+                    <div class="text-center"><input class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit"></div>
                 </form>
             </div>
         </section>

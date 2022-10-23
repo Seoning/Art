@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="board.model.Board">
+  
+  	<select id="GetTotalCount" resultType="int">
+  		select count(*) from board 
+  		<if test="whatColumn == 'title'">
+  			where title like #{keyword}
+  		</if>
+  		<if test="whatColumn == 'id'">
+  			where id like #{keyword}
+  		</if>
+  		<if test="whatColumn == ''">
+  			where id like #{keyword} or title like #{keyword}
+  		</if>
+  		 order by notice desc, cday desc
+  	</select>
+  	
+  	<select id="GetAll" resultType="board">
+  		select * from board 
+  		<if test="whatColumn == 'title'">
+  			where title like #{keyword}
+  		</if>
+  		<if test="whatColumn == 'id'">
+  			where id like #{keyword}
+  		</if>
+  		<if test="whatColumn == ''">
+  			where id like #{keyword} or title like #{keyword}
+  		</if>
+  		 order by notice desc, cday desc
+  	</select>
+  	
+  	<select id="GetByNo" resultType="board">
+  		select * from board where no = #{no}
+  	</select>
+  	
+  	<update id="UpdateReadcnt">
+  		update board set readcnt = readcnt+1 where no = #{no}
+  	</update>
+  	
+  	<insert id="InsertBoard">
+  		insert into board values(b_seq.nextval, #{title}, #{id}, #{email}, #{phone},
+  		#{message}, 0, 0, sysdate, null, null, #{notice})
+  	</insert>
+  	
+  	<delete id="DeleteByNo">
+  		delete board where no = #{no}
+  	</delete>
+  	
+  	<update id="UpdateByNo">
+  		update board set title = #{title}, message = #{message}, uday = sysdate where no = #{no}
+  	</update>
+  	
+  	<update id="PlusReplyCnt">
+  		update board set reply = reply+1 where no=#{no}
+  	</update>
+  	
+  	<update id="MinusReplyCnt">
+  		update board set reply = reply-1 where no=#{no}
+  	</update>
+  	
+  	<select id="GetById" resultType="board">
+  		select * from board where id = #{id}
+  	</select>
+  	
+  	<!-- table reply -->
+  	
+  	<select id="ReplyByReno" resultType="reply">
+  		select * from reply where reno = #{reno}
+  	</select>
+  	
+  	<insert id="InsertReply">
+  		insert into reply values(#{reno}, rp_seq.nextval, #{id}, #{content}, sysdate, null)
+  	</insert>
+  	
+  	<delete id="DeleteReplyByNo">
+  		delete reply where no = #{no}
+  	</delete>
+  	
+  	<select id="RepleByNo" resultType="reply">
+  		select * from reply where no = #{no}
+  	</select>
+  	
+  	<update id="UpdateReply">
+  		update reply set content=#{content}, uday = sysdate where no = #{no}
+  	</update>
+  	
+  	
+  	 
+  	
+  </mapper>
