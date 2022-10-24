@@ -37,12 +37,19 @@
 			</c:if>
 			
 			<c:forEach var="eb" items="${lists }">
+				<fmt:parseDate var="startday" value="${eb.startday }" pattern="yyyy-MM-dd"/>
+				<fmt:formatDate value="${startday }" var="startday" pattern="yyyy-MM-dd"/>
+				
+				
+				<fmt:parseDate var="endday" value="${eb.endday }" pattern="yyyy-MM-dd"/>
+				<fmt:formatDate value="${endday }" var="endday" pattern="yyyy-MM-dd"/>
+				
 			<tr class="table-light">
 				<td>${eb.no }</td>
 				<td><a href="detail.ex?no=${eb.no }">${eb.title }</a></td>
 				<td>${eb.painter }</td>
-				<td>${eb.startday }</td>
-				<td>${eb.endday }</td>
+				<td>${startday }</td>
+				<td>${endday }</td>
 				<td>${eb.museum }</td>
 			</tr>
 			</c:forEach>

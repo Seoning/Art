@@ -6,7 +6,15 @@
   <mapper namespace="exhibition.model.Exhibition">
   	
   	<select id="GetAllEx" resultType="exhibition">
-  		select * from exhibition order by no desc
+  		select * from exhibition 
+  		<if test="opt == 'past'">
+			where sysdate > endday
+  		</if>
+  		<if test="opt == 'present'">
+			where sysdate >= startday and endday >= sysdate
+  		</if>
+	  		order by no desc  		
+  		
   	</select>
   	
   	<insert id="InsertExhibition">
