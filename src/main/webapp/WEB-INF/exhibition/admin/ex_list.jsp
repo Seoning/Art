@@ -28,6 +28,7 @@
 				<th scope="row">시작일</th>
 				<th scope="row">종영일</th>
 				<th scope="row">전시회장</th>
+				<th scope="row">일일 수용 인원</th>
 			</tr>
 			
 			<c:if test="${empty lists }">
@@ -41,9 +42,18 @@
 				<td>${eb.no }</td>
 				<td><a href="detail.ex?no=${eb.no }">${eb.title }</a></td>
 				<td>${eb.painter }</td>
-				<td>${eb.startday }</td>
-				<td>${eb.endday }</td>
+				<td>
+					<fmt:parseDate var="startday" value="${eb.startday }" pattern="yyyy-MM-dd"/>
+					<fmt:formatDate value="${startday }" var="startday" pattern="yyyy-MM-dd"/>
+					${startday }
+				</td>
+				<td>
+					<fmt:parseDate var="endday" value="${eb.endday }" pattern="yyyy-MM-dd"/>
+					<fmt:formatDate value="${endday }" var="endday" pattern="yyyy-MM-dd"/>
+					${endday }
+				</td>
 				<td>${eb.museum }</td>
+				<td>${eb.onedayaccept }</td>
 			</tr>
 			</c:forEach>
 		</table>

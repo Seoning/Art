@@ -37,4 +37,26 @@
   		select * from member where name = #{name} and phone = #{phone}
   	</select>
   	
+  	<select id="selectSnsUserBySnsId" resultType="member">
+	    select 
+	    a.name,
+	    a.email,
+	    b.sns_id,
+	    b.sns_type,
+	    b.sns_name,
+	    b.sns_profile,
+	    b.sns_connect_date
+	    from member a,
+	    sns_info b
+	    where
+	    a.id = b.id
+	    AND b.sns_id = #{snsId}
+  	</select>
+  	
+  	  <insert id="insertSnsUser" >
+    insert into
+    sns_info(id, sns_id, sns_type, sns_name, sns_profile,
+    sns_connect_date)
+    values (#{id}, #{snsId}, #{snsType}, #{snsName}, #{snsProfile}, now() )
+  </insert>
   </mapper>

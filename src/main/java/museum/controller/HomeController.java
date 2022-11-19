@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import exhibition.model.ExhibitionBean;
 import exhibition.model.ExhibitionDao;
@@ -24,7 +25,7 @@ public class HomeController {
 	ExhibitionDao edao;
 	
 	@RequestMapping(command)
-	public String home(Model model) {
+	public String home(@RequestParam(required=false)String email,Model model) {
 		
 		List<MuseumBean>lists =  mdao.getMuseumList();
 		model.addAttribute("lists",lists);
@@ -32,7 +33,7 @@ public class HomeController {
 		List<ExhibitionBean> elists = edao.getExByEndday();
 		model.addAttribute("elists",elists);
 		
-		
+		System.out.println("email:"+email);
 		
 		return getPage;
 		

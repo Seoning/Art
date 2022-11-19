@@ -16,6 +16,7 @@ public class ExhibitionBean { //
 	private int count;
 	private int price;
 	private int readcount;
+	private int onedayaccept;
 
 	private MultipartFile upload;
 	
@@ -130,6 +131,14 @@ public class ExhibitionBean { //
 
 	public void setReadcount(int readcount) {
 		this.readcount = readcount;
+	}
+
+	public int getOnedayaccept() {
+		return onedayaccept;
+	}
+
+	public void setOnedayaccept(int onedayaccept) {
+		this.onedayaccept = onedayaccept;
 	}
 
 	

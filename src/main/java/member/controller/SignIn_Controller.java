@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import member.model.MemberBean;
@@ -26,6 +27,18 @@ public class SignIn_Controller {
 	
 	@Autowired
 	MemberDao mdao;
+	
+	@RequestMapping(value="login", method=RequestMethod.GET)
+    public String loginGET() {
+        
+        return "user/login";
+    }
+    
+    @RequestMapping(value="loginPostNaver", method=RequestMethod.GET)
+    public String loginPOSTNaver(HttpSession session) {
+        
+        return "user/loginPostNaver";
+    }
 	
 	@RequestMapping(command) //login
 	public String signin(String id, String pw, @RequestParam(required=false) String eno, HttpSession session, HttpServletResponse response) throws IOException {
@@ -56,6 +69,9 @@ public class SignIn_Controller {
 			return "redirect:reservation.re?no="+eno+"&count="+0;
 		}
 		return getPage;
+		
+	
+
 	}
 	
 	@RequestMapping(command2)

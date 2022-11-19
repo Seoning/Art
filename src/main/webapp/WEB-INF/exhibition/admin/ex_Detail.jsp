@@ -80,6 +80,10 @@
 			<td>${eb.count }개</td>
 		</tr>
 		<tr class="table-light">
+			<th class="table-primary" scope="row">일일 수용 인원</th>
+			<td>${eb.onedayaccept }명</td>
+		</tr>
+		<tr class="table-light">
 			<th class="table-primary" scope="row">첨부사진</th>
 			<td><img src="<%=request.getContextPath()%>/resources/img/exhib/${eb.img}" width=250></td>
 		</tr>

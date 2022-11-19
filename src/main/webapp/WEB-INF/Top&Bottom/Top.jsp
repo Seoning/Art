@@ -93,6 +93,9 @@
                         <li class="nav-item"><a class="nav-link" href="#museum">Museum</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">Exhibition</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                         <li class="nav-item">
+                        	 <a class="nav-link" id="naverLogin"></a>
+                         </li>
                     	<c:if test="${login_Info.id ne null }">
 	                    	<li class="nav-item">
 	                    		<a class="nav-link" href="mypage.mem?no=${login_Info.no }">${login_Info.name }님 안녕하세요</a>
@@ -105,14 +108,15 @@
         </nav>
         <!--Home Main-->
         <header class="masthead" style="background: url('./resources/img/art_15964966087257_de821c.jpg')">
-            <div class="container">
+            <div class="container" id="centerButton">
                 <div class="masthead-subheading">Art_See</div>
                 <div class="masthead-heading text-uppercase">Korea National Gallery</div>
+               	<a id="naverLogout" onclick="naverLogout();"></a>
 				<c:if test="${login_Info.id ne null }">
                 	<a class="portfolio-link btn btn-primary btn-xl text-uppercase" href="logout.mem">Logout</a>
                 </c:if>
 				<c:if test="${login_Info.id eq null }">
-                	<a class="portfolio-link btn btn-primary btn-xl text-uppercase" data-bs-toggle="modal" href="#login">Login</a>
+                	<a class="portfolio-link btn btn-primary btn-xl text-uppercase" id="memberLogin" data-bs-toggle="modal" href="#login">Login</a>
                 </c:if>
             </div>
         </header>
