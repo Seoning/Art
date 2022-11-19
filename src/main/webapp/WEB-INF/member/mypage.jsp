@@ -94,11 +94,12 @@
 							</tr>
 							</c:forEach>
 						</c:if>
+						
 						<c:if test="${empty blists }">
 							<c:forEach var="bb" items="${blists }">
-							<tr class="table-primary">
-								<th scope="row" colspan="5">문의 내역이 없습니다.</th>
-							</tr>
+								<tr class="table-primary">
+									<th scope="row" colspan="5">문의 내역이 없습니다.</th>
+								</tr>
 							</c:forEach>
 						</c:if>
 	            	</table>

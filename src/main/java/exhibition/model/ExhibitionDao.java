@@ -13,8 +13,8 @@ public class ExhibitionDao {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 
-	public List<ExhibitionBean> getAllEx() {
-		List<ExhibitionBean> lists = sqlSessionTemplate.selectList(namespace+".GetAllEx");
+	public List<ExhibitionBean> getAllEx(String opt) {
+		List<ExhibitionBean> lists = sqlSessionTemplate.selectList(namespace+".GetAllEx",opt);
 		return lists;
 	}
 
