@@ -101,6 +101,11 @@
 	                    		<a class="nav-link" href="mypage.mem?no=${login_Info.no }">${login_Info.name }님 안녕하세요</a>
 	                    	</li>
                     	</c:if>
+                    	<c:if test="${sessionId != null}">
+	                    	<li class="nav-item">
+	                    		<a class="nav-link" href="">${sessionId}님 안녕하세요</a>
+	                    	</li>
+                    	</c:if>
                     </ul>
                   
                 </div>
@@ -112,10 +117,13 @@
                 <div class="masthead-subheading">Art_See</div>
                 <div class="masthead-heading text-uppercase">Korea National Gallery</div>
                	<a id="naverLogout" onclick="naverLogout();"></a>
-				<c:if test="${login_Info.id ne null }">
+				<c:if test="${login_Info.id ne null}">
                 	<a class="portfolio-link btn btn-primary btn-xl text-uppercase" href="logout.mem">Logout</a>
                 </c:if>
-				<c:if test="${login_Info.id eq null }">
+				<c:if test="${sessionId ne null }">
+                	<a class="portfolio-link btn btn-primary btn-xl text-uppercase" href="logout">Logout</a>
+                </c:if>
+				<c:if test="${login_Info.id eq null && sessionId eq null }">
                 	<a class="portfolio-link btn btn-primary btn-xl text-uppercase" id="memberLogin" data-bs-toggle="modal" href="#login">Login</a>
                 </c:if>
             </div>

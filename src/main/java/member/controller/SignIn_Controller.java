@@ -28,18 +28,7 @@ public class SignIn_Controller {
 	@Autowired
 	MemberDao mdao;
 	
-	@RequestMapping(value="login", method=RequestMethod.GET)
-    public String loginGET() {
-        
-        return "user/login";
-    }
-    
-    @RequestMapping(value="loginPostNaver", method=RequestMethod.GET)
-    public String loginPOSTNaver(HttpSession session) {
-        
-        return "user/loginPostNaver";
-    }
-	
+
 	@RequestMapping(command) //login
 	public String signin(String id, String pw, @RequestParam(required=false) String eno, HttpSession session, HttpServletResponse response) throws IOException {
 		

@@ -19,6 +19,7 @@
 	<context:component-scan base-package="member"/>
 	<context:component-scan base-package="reservation"/>
 	<context:component-scan base-package="board"/>
+	<context:component-scan base-package="com.spring.ex" />
 	
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="10485760"/>
